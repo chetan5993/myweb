@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+    background-color:#FFE475;
+    color: white;
+    position: fixed;
+    width: 100%;
+    /* margin-bottom: 3rem; */
+    z-index: 1;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+.right{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 2rem;
+    margin-right:20px;
+     flex-wrap:wrap ;
+}
+.home{
+    margin-right: 30px;
+    flex-wrap:wrap ;
+
+}
+i{
+    color:black;
+    /* padding: 2rem; */
+    /* height: 2rem; */
+    /* width: 2rem; */
+    font-size: 1.5rem;
+}
