@@ -12,7 +12,7 @@ function Nav() {
         <div className="heading"> <h3>My shopping app</h3></div>
         <div className="right">
             <div className="home">Home</div>
-            <div className="cart"> <i className="fa-solid fa-cart-shopping"></i><span>{cart.length}</span> </div>
+            <div className="cart"> <i className="fa-solid fa-cart-shopping"></i><span className='span'>{cart.length}</span> </div>
         </div>
         </div> 
     </div>

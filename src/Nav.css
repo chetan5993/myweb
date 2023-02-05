@@ -33,3 +33,10 @@ i{
     /* width: 2rem; */
     font-size: 1.5rem;
 }
+.span{
+    color: black;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+}

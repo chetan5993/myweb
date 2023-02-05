@@ -18,15 +18,13 @@ export default function Home({data,category}) {
     const [isToggled, setToggled] = useState(false);
 // console.log(data)
 
-const arr=[];
+// const arr=[];/
     const handleAddToCart = (product) => {
-       let arr=cartitems;
-       arr.push(product.id)
-       console.log(arr)
-       console.log(cartitems)
-      console.log(product);
+    
+      
+       
         dispatch(addProductToCart(product));
-       setCartItems(arr);
+       setCartItems([...cartitems,product.id]);
 
       };    
     // console.log(category)
@@ -42,11 +40,14 @@ setProduct(product);
 
 
 function handleRemoveFromCart(product){
-  console.log("click");
-
+  // console.log("click");
+  let updatedIds = cartitems.filter(id => id !== product.id);
+  // console.log(updatedIds)
+  setCartItems(updatedIds);
   dispatch(removeFromCart(product));
+
 }
- 
+//  console.log(cartitems)
 // const  dta = data.filter((element) => element.category != `${value}`).map((obj)=>obj)
 // console.log("dta", dta)
     
@@ -66,7 +67,7 @@ function handleRemoveFromCart(product){
 
       <div className="items">
       {product.map((d)=>{
-        console.log(d)
+        // console.log(d)
         
             return (<div key={d.id} className="itembox">
                 <div className="image"><img className='img' src={d.images[0]} /></div>
@@ -78,9 +79,9 @@ function handleRemoveFromCart(product){
             </div> )     
       })
       }
-       {/* {data.map((d)=>{
+       {data.map((d)=>{
         // console.log(d)
-        
+        if(d.category!=product[0]?.category){
             return (<div key={d.id} className="itembox">
                 <div className="image"><img className='img' src={d.images[0]} /></div>
                 <div className="title">Title :{d.title.substring(0, 6)}</div>
@@ -90,9 +91,11 @@ function handleRemoveFromCart(product){
                : <button   className='removebtn'  onClick={()=>handleRemoveFromCart(d)}>-</button>} 
  
 
-            </div> )     
+            </div> ) 
+        }    
       })
-      } */}
+      }
+    
     </div>
     </div>
     </div>
