@@ -6,11 +6,11 @@ import {addProductToCart} from '../actions/cartActions';
 // import { set } from 'core-js/core/dict';
 import { set } from 'core-js';
 import { removeFromCart } from '../actions/cartActions';
+import Topbar from './Topbar';
 
 
 export default function Home({data,category}) {
     const dispatch = useDispatch();
-  // const cart = useSelector(state => state.cart);
 
     const[product,setProduct]=useState(data)
     const [value,setValue]=useState([])
@@ -27,7 +27,7 @@ export default function Home({data,category}) {
        setCartItems([...cartitems,product.id]);
 
       };    
-    // console.log(category)
+    
     function handlerClick(category){
       setValue(category)
      
@@ -54,7 +54,13 @@ function handleRemoveFromCart(product){
   return (
     <div className='maincontainer'>
         {/* <h2 className='App'>All Items</h2> */}
+        
+          <Topbar category={category} handlerClick={handlerClick}/>
+        
         <div className="container">
+        <div className="topbar">
+        
+        </div>
         <div className="sidebar">
       {category.map((d)=>{
         
@@ -66,13 +72,20 @@ function handleRemoveFromCart(product){
           </div>
 
       <div className="items">
+      {/* <h2 className='selectedCategory-Title'>{product[0]?.category}</h2>
+      <br /><br /> */}
+
+
       {product.map((d)=>{
         // console.log(d)
         
             return (<div key={d.id} className="itembox">
-                <div className="image"><img className='img' src={d.images[0]} /></div>
+              {/* <h3>{d.category}</h3> */}
+                <div className="image"><img className='img' src={d.images[0]} />
+                
+                </div>
                 <div className="title">Title :{d.title.substring(1, 6)}</div>
-                <div className="price"> Price :$ {d.price}</div>
+                <div className="title"> Price :$ {d.price}</div>
                 {!cartitems.includes(d.id)?<button className='removebtn'  onClick={()=>handleAddToCart(d)}>+</button>
                : <button   className='removebtn'  onClick={()=>handleRemoveFromCart(d)}>-</button>}
 
@@ -83,9 +96,10 @@ function handleRemoveFromCart(product){
         // console.log(d)
         if(d.category!=product[0]?.category){
             return (<div key={d.id} className="itembox">
+
                 <div className="image"><img className='img' src={d.images[0]} /></div>
                 <div className="title">Title :{d.title.substring(0, 6)}</div>
-                <div className="price"> Price :$ {d.price}</div>
+                <div className="title"> Price :$ {d.price}</div>
                 
                 {!cartitems.includes(d.id)?<button className='removebtn'  onClick={()=>handleAddToCart(d)}>+</button>
                : <button   className='removebtn'  onClick={()=>handleRemoveFromCart(d)}>-</button>} 
