@@ -34,7 +34,7 @@
   }
   .title{
     /* position: absolute; */
-    font-size: 1em;
+    font-size: 1rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   .removebtn{
@@ -156,7 +156,7 @@
       flex-direction: column;
     }
     .title{
-      font-size: .2;
+      font-size: 10px;
     }
     .img{
       width: 3rem;
