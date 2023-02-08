@@ -1,42 +1,19 @@
-import React,{useState,useEffect} from 'react'
-import Nav from './Nav'
-import  "./App.css"
+import React from "react";
+import Nav from "./Nav";
+import "./App.css";
+import Home from "./components/Home";
+import products from "./components/products.json";
 
-import Home from './components/Home';
-import Cart from './components/Cart';
-import { Routes, Route } from "react-router-dom";
-import axios from 'axios'
 export default function App() {
+  const unique_category = new Set();
+  products?.map((product) => {
+    unique_category.add(product.category);
+  });
 
-  const[data,setData]=useState([])
-  const myset=new Set()
-
-  const[category,setCategory]=useState([])
-    useEffect(() => {
-        axios.get("https://dummyjson.com/products")
-          .then(response => {
-            // console.log(response)
-response.data.products.map((data)=>{
-myset.add(data.category)
-
-})
-setCategory(myset);
-console.log(category)
-
-            setData(response.data.products);
-
-          })
-          .catch(error => {
-            console.error(error);
-          });
-
-      }, []);
   return (
     <div>
- <Nav/>
- <Routes>
- <Route index element={<Home data={data}  category={category}/>}/>
-</Routes>
+      <Nav />
+      <Home data={products} category={unique_category} />
     </div>
-  )
+  );
 }

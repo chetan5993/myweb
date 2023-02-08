@@ -5,6 +5,7 @@
 .main{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color:#FFE475;
     color: white;
     position: fixed;
@@ -44,4 +45,16 @@ i{
     color: black;
 margin-top: 1rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+@media (max-width: 450px) {
+    .main{
+        background-color: white;
+    }
+    .mainHeading{
+        font-family: 'Mortise';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 140%;
+    }
 }
